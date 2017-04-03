@@ -4,6 +4,6 @@
 
 [Backlogs](https://github.com/eturivi/ohtu-miniprojekti/projects/1)  
 
-[Documentation](https://github.com/eturivi/ohtu-miniprojekti/documentation)
+[Documentation](https://github.com/eturivi/ohtu-miniprojekti/tree/master/documentation)
 
 [Heroku instance](https://eturivi.herokuapp.com)
