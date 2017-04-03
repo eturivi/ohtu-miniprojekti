@@ -110,11 +110,8 @@ GEM
     nio4r (2.0.0)
     nokogiri (1.7.1)
       mini_portile2 (~> 2.1.0)
-<<<<<<< HEAD
     public_suffix (2.0.5)
-=======
     pg (0.20.0)
->>>>>>> d1defdc599411448f0bb191957692c24ed9db0b5
     puma (3.8.2)
     rack (2.0.1)
     rack-test (0.6.3)
