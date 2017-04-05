@@ -4,8 +4,12 @@ one:
   author: MyString
   title: MyString
   year: 1
+  journal: MyString
+  volume: 1
 
 two:
   author: MyString
   title: MyString
   year: 1
+  journal: MyString
+  volume: 1

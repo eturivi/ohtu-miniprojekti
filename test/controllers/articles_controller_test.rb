@@ -23,7 +23,6 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
                                               journal: @article.journal,
                                               volume: @article.volume } }
     end
-
     assert_redirected_to article_url(Article.last)
   end
 

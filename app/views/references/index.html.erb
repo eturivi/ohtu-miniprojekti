@@ -18,7 +18,7 @@
   <tbody>
     <% @references.each do |reference| %>
       <tr>
-        <td><%= reference.class.name %></td>
+        <td><%= link_to reference.class.name, articles_path %></td>
         <td><%= reference.author %></td>
         <td><%= reference.title %></td>
         <td><%= reference.year %></td>
