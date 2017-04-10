@@ -6,6 +6,7 @@ We hereby agree that the following criteria should be met before a user story ma
 - Each task related to the user story has been planned and implemented
 - The code builds without errors
 - Unit tests for each task related to the user story are written and fully automated
+- The line coverage for the unit tests is over 90 percent
 - All unit tests are passing
 - Some behaviour-driven (Cucumber) tests are written
 - All written behaviour-driven tests are passing
