@@ -4,8 +4,8 @@ end
 
 Given(/^I have filled in author as "(.*)", title as "(.*)", year as "(.*)"$/) do |author, title, year|
   fill_in "Author", with: author
-  fill_in "Title", with: author
-  fill_in "Year", with: author
+  fill_in "Title", with: title
+  fill_in "Year", with: year
 end
 
 When(/^I click "(.*)"$/) do |link|
@@ -14,8 +14,5 @@ end
 
 Then(/^(.*) has content (.*)$/) do |path, contents|
   visit path == "front page" ? '/' : path
-
-  for word in contents.split(" and ").map { |w| w.scan(/"(.*)"/)[0][0] }
-    page.has_content?(word)
-  end
+  contents.split(" and ").all? { |word| assert page.has_content?(word[1...-1]) }
 end
