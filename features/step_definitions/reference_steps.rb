@@ -2,16 +2,20 @@ Given(/^I am at (.*)$/) do |page_path|
   visit page_path
 end
 
-Given(/^(\w*) is filled in with "(.*)"$/) do |label, content|
-  fill_in label, with: content
+Given(/^I have filled in author as "(.*)", title as "(.*)", year as "(.*)"$/) do |author, title, year|
+  fill_in "Author", with: author
+  fill_in "Title", with: author
+  fill_in "Year", with: author
 end
 
 When(/^I click "(.*)"$/) do |link|
-  save_and_open_page
   click_button link
 end
 
-Then(/^page "(.*)" has content "(.*)"$/) do |url, content|
-  visit url
-  page.has_content?(content)
+Then(/^(.*) has content (.*)$/) do |path, contents|
+  visit path == "front page" ? '/' : path
+
+  for word in contents.split(" and ").map { |w| w.scan(/"(.*)"/)[0][0] }
+    page.has_content?(word)
+  end
 end
