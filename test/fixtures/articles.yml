@@ -1,15 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  author: MyString
-  title: MyString
-  year: 1
-  journal: MyString
-  volume: 1
-
-two:
-  author: MyString
-  title: MyString
-  year: 1
-  journal: MyString
-  volume: 1
+  author: test user åäö
+  title: test article
+  year: 2017
+  journal: test journal
+  volume: 189

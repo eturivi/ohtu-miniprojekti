@@ -28,17 +28,19 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should not create article if blank fields" do
-    @params[:article].delete('author')
-    post articles_url, params: @params
-    assert_select "li", "Author can't be blank"
+    assert_no_difference('Article.count') do
+      @params[:article].delete('author')
+      post articles_url, params: @params
+      assert_select "li", "Author can't be blank"
 
-    @params[:article].delete('title')
-    post articles_url, params: @params
-    assert_select "li", "Title can't be blank"
+      @params[:article].delete('title')
+      post articles_url, params: @params
+      assert_select "li", "Title can't be blank"
 
-    @params[:article].delete('year')
-    post articles_url, params: @params
-    assert_select "li", "Year can't be blank"
+      @params[:article].delete('year')
+      post articles_url, params: @params
+      assert_select "li", "Year can't be blank"
+    end
   end
 
   test "should show article" do
@@ -71,5 +73,14 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to articles_url
+  end
+
+  test "should show article references in human-readable form" do
+    get articles_url
+    assert_select "td", /^test\ user\ åäö$/
+    assert_select "td", /^test\ article$/
+    assert_select "td", /^2017$/
+    assert_select "td", /^test\ journal$/
+    assert_select "td", /^189$/
   end
 end
