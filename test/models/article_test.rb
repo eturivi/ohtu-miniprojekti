@@ -18,13 +18,13 @@ class ArticleTest < ActiveSupport::TestCase
   test "invalid new article without title" do
     @article.title = nil
     refute @article.valid?
-    assert_not_nil @article.errors[:author]
+    assert_not_nil @article.errors[:title]
   end
 
   test "invalid new article without year" do
     @article.year = nil
     refute @article.valid?
-    assert_not_nil @article.errors[:author]
+    assert_not_nil @article.errors[:year]
   end
 
 end
