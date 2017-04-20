@@ -4,7 +4,9 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/eturivi/ohtu-miniprojekti/badge.svg?branch=master)](https://coveralls.io/github/eturivi/ohtu-miniprojekti)
 
-[Backlogs](https://trello.com/b/8Wocccve)
+[Project Backlog](https://trello.com/b/8Wocccve)
+
+[Sprint II Backlog](https://trello.com/b/MGD2YK9W)
 
 [Documentation](https://github.com/eturivi/ohtu-miniprojekti/tree/master/documentation)
 
