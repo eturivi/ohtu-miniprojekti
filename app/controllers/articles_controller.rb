@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy, :download]
 
   # GET /articles
   # GET /articles.json
@@ -59,6 +59,18 @@ class ArticlesController < ApplicationController
       format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def download
+    bibtex =
+"@article{
+author = {#{@article.author}},
+title = {#{@article.title}},
+journal = {#{@article.journal}},
+volume = {#{@article.volume}},
+year = {#{@article.year}},
+}"
+    send_data bibtex, :filename => "article_reference.bib"
   end
 
   private
