@@ -3,6 +3,11 @@ require 'test_helper'
 class ArticlesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @article = articles(:one)
+    @params = { article: { 'author' => @article.author,
+                           'title' => @article.title,
+                           'year' => @article.year,
+                           'journal' => @article.journal,
+                           'volume' => @article.volume } }
   end
 
   test "should get index" do
@@ -17,13 +22,25 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create article" do
     assert_difference('Article.count') do
-      post articles_url, params: { article: { author: @article.author,
-                                              title: @article.title,
-                                              year: @article.year,
-                                              journal: @article.journal,
-                                              volume: @article.volume } }
+      post articles_url, params: @params
     end
     assert_redirected_to article_url(Article.last)
+  end
+
+  test "should not create article if blank fields" do
+    assert_no_difference('Article.count') do
+      @params[:article].delete('author')
+      post articles_url, params: @params
+      assert_select "li", "Author can't be blank"
+
+      @params[:article].delete('title')
+      post articles_url, params: @params
+      assert_select "li", "Title can't be blank"
+
+      @params[:article].delete('year')
+      post articles_url, params: @params
+      assert_select "li", "Year can't be blank"
+    end
   end
 
   test "should show article" do
@@ -37,12 +54,17 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update article" do
-    patch article_url(@article), params: { article: { author: @article.author,
-                                                      title: @article.title,
-                                                      year: @article.year,
-                                                      journal: @article.journal,
-                                                      volume: @article.volume } }
+    patch article_url(@article), params: @params
     assert_redirected_to article_url(@article)
+  end
+
+  test "should not update article if blank fields" do
+    patch article_url(@article), params: { article: { author: "",
+                                                      title: "",
+                                                      year: "" } }
+    assert_select "li", "Author can't be blank"
+    assert_select "li", "Title can't be blank"
+    assert_select "li", "Year can't be blank"
   end
 
   test "should destroy article" do
@@ -51,5 +73,14 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to articles_url
+  end
+
+  test "should show article references in human-readable form" do
+    get articles_url
+    assert_select "td", /^test\ user\ åäö$/
+    assert_select "td", /^test\ article$/
+    assert_select "td", /^2017$/
+    assert_select "td", /^test\ journal$/
+    assert_select "td", /^189$/
   end
 end
