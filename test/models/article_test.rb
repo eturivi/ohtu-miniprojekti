@@ -27,4 +27,16 @@ class ArticleTest < ActiveSupport::TestCase
     assert_not_nil @article.errors[:year]
   end
 
+  test "invalid new article without journal" do
+    @article.journal = nil
+    refute @article.valid?
+    assert_not_nil @article.errors[:journal]
+  end
+
+  test "invalid new article without volume" do
+    @article.volume = nil
+    refute @article.valid?
+    assert_not_nil @article.errors[:volume]
+  end
+
 end
