@@ -6,12 +6,13 @@ Given(/^I am at (.*)$/) do |path|
   visit path == "front page" ? '/' : path
 end
 
-When(/^author "(.*)", title "(.*)", year "(.*)", journal "(.*)" are given$/) do
-  |author, title, year, journal|
+When(/^author "(.*)", title "(.*)", year "(.*)", journal "(.*)", volume "(.*)" are given$/) do
+  |author, title, year, journal, volume|
   fill_in "Author", with: author
   fill_in "Title", with: title
   fill_in "Year", with: year
   fill_in "Journal", with: journal
+  fill_in "Volume", with: volume
   click_button 'Create Article'
 end
 
