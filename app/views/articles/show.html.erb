@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h2>Article</h2>
+<h2>Article reference</h2>
 
 <p>
   <strong>Author:</strong>
@@ -25,6 +25,11 @@
 <p>
   <strong>Volume:</strong>
   <%= @article.volume %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @article.all_tags %>
 </p>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
