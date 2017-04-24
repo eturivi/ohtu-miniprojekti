@@ -39,9 +39,11 @@ class ArticleTest < ActiveSupport::TestCase
     assert_not_nil @article.errors[:volume]
   end
 
-#  test "ignores empty tags added via all_tags=" do
-#    assert_difference 'Tag.count', 1 do
-#      @article.all_tags = ",,x"
-#    end
-#  end
+  test "ignores empty tags added via all_tags=" do
+    assert_no_difference 'Tag.count', 0 do
+      assert_raises(ActiveRecord::RecordInvalid) do
+        @article.all_tags = ",,x"
+      end
+    end
+  end
 end
