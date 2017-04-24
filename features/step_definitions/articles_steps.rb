@@ -16,6 +16,15 @@ When(/^author "(.*)", title "(.*)", year "(.*)", journal "(.*)", volume "(.*)" a
   click_button 'Create Article'
 end
 
+When(/all fields except (\w+) are given/) do |missing_field|
+  fill_in "Author", with: "Best Author Ever" if missing_field != "Author"
+  fill_in "Title", with: "Best Title Ever" if missing_field != "Title"
+  fill_in "Year", with: 666 if missing_field != "Year"
+  fill_in "Journal", with: "Best Journal Ever" if missing_field != "Journal"
+  fill_in "Volume", with: 42 if missing_field != "Volume"
+  click_button 'Create Article'
+end
+
 When(/^I click "(.*)"$/) do |link|
   click_link link
 end
