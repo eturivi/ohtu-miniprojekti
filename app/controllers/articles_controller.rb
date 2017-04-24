@@ -63,13 +63,13 @@ class ArticlesController < ApplicationController
 
   def download
     bibtex =
-"@article{
-author = {#{@article.author}},
-title = {#{@article.title}},
-journal = {#{@article.journal}},
-volume = {#{@article.volume}},
-year = {#{@article.year}},
-}"
+    "@article{"
+      "author = {#{@article.author}},"
+      "title = {#{@article.title}},"
+      "journal = {#{@article.journal}},"
+      "volume = {#{@article.volume}},"
+      "year = {#{@article.year}},"
+    "}"
     send_data bibtex, :filename => "article_reference.bib"
   end
 
