@@ -1,6 +1,16 @@
 class ReferencesController < ApplicationController
   def index
-    @references = Article.all
+    if params[:tags]
+      @references = Article.all.select do |article|
+        params[:tags].split(",").any? do |tag_name|
+          article.tags.any? do |tag|
+            tag.name == tag_name
+          end
+        end
+      end
+    else
+      @references = Article.all
+    end
   end
 
   def download
