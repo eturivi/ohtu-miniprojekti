@@ -13,25 +13,25 @@ Feature: As a customer I can add an article-type reference
 
   Scenario: adding a new article fails due to invalid author
     Given new article is selected
-    When  author "", title "#yolo", year "666", journal "Foo", volume "1" are given
+    When  all fields except Author are given
     Then  article is not added and error message is given
 
   Scenario: adding a new article fails due to invalid title
     Given new article is selected
-    When  author "emlai", title "", year "666", journal "Foo", volume "1" are given
+    When  all fields except Title are given
     Then  article is not added and error message is given
 
   Scenario: adding a new article fails due to invalid year
     Given new article is selected
-    When  author "emlai", title "#yolo", year "", journal "Foo", volume "1" are given
+    When  all fields except Year are given
     Then  article is not added and error message is given
 
   Scenario: adding a new article fails due to invalid journal
     Given new article is selected
-    When  author "emlai", title "#yolo", year "666", journal "", volume "1" are given
+    When  all fields except Journal are given
     Then  article is not added and error message is given
 
   Scenario: adding a new article fails due to invalid volume
     Given new article is selected
-    When  author "emlai", title "#yolo", year "666", journal "Foo", volume "" are given
+    When  all fields except Volume are given
     Then  article is not added and error message is given
