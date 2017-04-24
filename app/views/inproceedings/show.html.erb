@@ -70,5 +70,10 @@
   <%= @inproceeding.key %>
 </p>
 
+<p>
+  <strong>Tags:</strong>
+  <%= @inproceeding.all_tags %>
+</p>
+
 <%= link_to 'Edit', edit_inproceeding_path(@inproceeding) %> |
 <%= link_to 'Back', inproceedings_path %>
