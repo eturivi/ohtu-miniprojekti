@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :inproceedings
   root 'references#index'
   resources :articles
   get 'references', to: 'references#index'
