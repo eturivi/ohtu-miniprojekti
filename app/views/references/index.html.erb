@@ -3,7 +3,7 @@
 <h1>References</h1>
 
 <%= form_tag(references_path, method: "get") do %>
-  <%= text_field_tag(:tags, nil, placeholder: "Filter by tags") %>
+  <%= text_field_tag(:tags, nil, placeholder: "Search by tags") %>
 <% end %>
 
 <table>
@@ -30,13 +30,9 @@
         <td><%= reference.journal %></td>
         <td><%= reference.volume %></td>
         <td><%= reference.all_tags %></td>
-        <td><%= link_to 'Show', reference %></td>
-        <td><%= link_to 'Destroy', reference, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', reference, class: "button secondary" %>
+        <%= link_to 'Destroy', reference, method: :delete, data: { confirm: 'Are you sure?' }, class: "button secondary" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Article', new_article_path %>
