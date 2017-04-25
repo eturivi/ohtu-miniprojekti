@@ -28,6 +28,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
+        create_key
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
       else
@@ -62,15 +63,17 @@ class ArticlesController < ApplicationController
   end
 
   def download
-    bibtex =
-    "@article{"
-      "author = {#{@article.author}},"
-      "title = {#{@article.title}},"
-      "journal = {#{@article.journal}},"
-      "volume = {#{@article.volume}},"
-      "year = {#{@article.year}},"
-    "}"
+    bibtex = ArticlesController.create_entry(@article)
     send_data bibtex, :filename => "article_reference.bib"
+  end
+
+  def self.create_entry(article)
+    "@article{ #{article.key},\n"+
+    "  author = \"#{article.author}\",\n" +
+    "  title = \"#{article.title}\",\n" +
+    "  journal = \"#{article.journal}\",\n" +
+    "  volume = \"#{article.volume}\",\n" +
+    "  year = \"#{article.year}\" }"
   end
 
   private
@@ -81,6 +84,14 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:author, :title, :year, :journal, :volume, :all_tags)
+      params.require(:article).permit(
+        :author, :title, :year, :journal, :volume, :all_tags, :key)
+    end
+
+    def create_key
+      if(@article.key.blank?)
+        @article.key = @article.author[0,3] + @article.year.to_s + @article.id.to_s
+        @article.save
+      end
     end
   end

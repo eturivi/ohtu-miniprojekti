@@ -18,6 +18,16 @@
     </div>
 
     <div class="field">
+      <%= f.label :key %>
+      <%= f.text_field :key, placeholder: "If left blank, the format will be: the first 3 letters of Author + Year + Running number" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :author %>
+      <%= f.text_field :author %>
+    </div>
+
+    <div class="field">
       <%= f.label :title %>
       <%= f.text_field :title %>
     </div>
@@ -45,5 +55,4 @@
     <div class="actions">
       <%= f.submit %>
     </div>
-  </div>
 <% end %>

@@ -2,6 +2,10 @@
 
 <h1>References</h1>
 
+<%= form_tag(references_path, method: "get") do %>
+  <%= text_field_tag(:tags, nil, placeholder: "Filter by tags") %>
+<% end %>
+
 <table>
   <thead>
     <tr>

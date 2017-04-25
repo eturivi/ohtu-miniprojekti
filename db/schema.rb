@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20170425174202) do
     t.datetime "updated_at", null: false
     t.text     "journal"
     t.integer  "volume"
+    t.string   "key"
   end
 
   create_table "inproceedings", force: :cascade do |t|
@@ -44,8 +45,9 @@ ActiveRecord::Schema.define(version: 20170425174202) do
   create_table "taggings", force: :cascade do |t|
     t.integer  "article_id"
     t.integer  "tag_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "inproceeding_id"
     t.index ["article_id"], name: "index_taggings_on_article_id"
     t.index ["tag_id"], name: "index_taggings_on_tag_id"
   end
