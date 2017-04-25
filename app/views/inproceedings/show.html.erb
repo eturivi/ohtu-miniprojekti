@@ -75,4 +75,4 @@
   <%= @inproceeding.all_tags %>
 </p>
 
-<%= link_to 'Edit', edit_inproceeding_path(@inproceeding), class: "button secondary" %> <%= link_to 'Destroy', inproceeding, method: :delete, data: { confirm: 'Are you sure?' }, class: "button secondary" %>
+<%= link_to 'Edit', edit_inproceeding_path(@inproceeding), class: "button secondary" %> <%= link_to 'Destroy', @inproceeding, method: :delete, data: { confirm: 'Are you sure?' }, class: "button secondary" %>
