@@ -6,7 +6,7 @@
 
 [Project Backlog](https://trello.com/b/8Wocccve)
 
-[Sprint II Backlog](https://trello.com/b/MGD2YK9W)
+[Sprint III Backlog](https://trello.com/b/tfTBgMb8)
 
 [Documentation](https://github.com/eturivi/ohtu-miniprojekti/tree/master/documentation)
 
