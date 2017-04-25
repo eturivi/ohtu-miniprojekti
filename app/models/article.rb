@@ -4,6 +4,7 @@ class Article < ApplicationRecord
   validates :year, presence: true, allow_blank: false
   validates :journal, presence: true
   validates :volume, presence: true
+  #validates :key, presence: true
 
   has_many :taggings
   has_many :tags, through: :taggings

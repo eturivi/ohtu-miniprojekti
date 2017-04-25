@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170424153937) do
+ActiveRecord::Schema.define(version: 20170425132033) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "author"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20170424153937) do
     t.datetime "updated_at", null: false
     t.text     "journal"
     t.integer  "volume"
+    t.string   "key"
   end
 
   create_table "inproceedings", force: :cascade do |t|

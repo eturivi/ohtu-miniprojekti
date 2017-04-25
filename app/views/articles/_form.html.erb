@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :key %>
+    <%= f.text_field :key %>
+  </div>
+
+  <div class="field">
     <%= f.label :author %>
     <%= f.text_field :author %>
   </div>
@@ -40,7 +45,7 @@
     <%= f.label :tags %>
     <%= f.text_field :all_tags, placeholder: "Tags separated with comma" %>
   </div>
-  
+
   <div class="actions">
     <%= f.submit %>
   </div>
