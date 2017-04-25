@@ -9,7 +9,7 @@ Feature: As a customer I can add an article-type reference
     Given new article is selected
     When  author "Åke Ö Ääöå", title "ÅåÖöÄä", year "2018", journal "Bar", volume "1" are given
     Then  article is added
-    And   scandics are shown properly
+    And  scandics are shown properly
 
   Scenario: adding a new article fails due to invalid author
     Given new article is selected

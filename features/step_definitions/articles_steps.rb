@@ -12,7 +12,7 @@ When(/^author "(.*)", title "(.*)", year "(.*)", journal "(.*)", volume "(.*)" a
   fill_in "Title", with: title
   fill_in "Year", with: year
   fill_in "Journal", with: journal
-  fill_in "Volume", with: volume
+  fill_in "Volume", with: volume 
   click_button 'Create Article'
 end
 
