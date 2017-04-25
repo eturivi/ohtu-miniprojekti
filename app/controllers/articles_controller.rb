@@ -28,7 +28,8 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        create_key
+        create_key(@article)
+        @article.save
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
       else
@@ -86,12 +87,5 @@ class ArticlesController < ApplicationController
     def article_params
       params.require(:article).permit(
         :author, :title, :year, :journal, :volume, :all_tags, :key)
-    end
-
-    def create_key
-      if(@article.key.blank?)
-        @article.key = @article.author[0,3] + @article.year.to_s + @article.id.to_s
-        @article.save
-      end
     end
   end

@@ -28,6 +28,8 @@ class InproceedingsController < ApplicationController
 
     respond_to do |format|
       if @inproceeding.save
+        create_key(@inproceeding)
+        @inproceeding.save
         format.html { redirect_to @inproceeding, notice: 'Inproceeding was successfully created.' }
         format.json { render :show, status: :created, location: @inproceeding }
       else
