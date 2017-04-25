@@ -6,7 +6,7 @@ class Article < ApplicationRecord
   validates :volume, presence: true
   #validates :key, presence: true
 
-  has_many :taggings
+  has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
 
   def all_tags=(names)
