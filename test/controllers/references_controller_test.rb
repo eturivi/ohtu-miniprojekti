@@ -40,7 +40,6 @@ class ReferencesControllerTest < ActionDispatch::IntegrationTest
 
 
     get alldownload_path
-    binding.pry
     assert_equal expected, response.body
     assert_response 200
   end
