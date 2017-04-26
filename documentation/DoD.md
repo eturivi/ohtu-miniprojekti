@@ -1,4 +1,4 @@
-# Definition of Done (first draft)
+# Definition of Done
 
 We hereby agree that the following criteria should be met before a user story may be declared "done":
 
