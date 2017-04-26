@@ -3,6 +3,10 @@ require 'test_helper'
 class InproceedingsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @inproceeding = inproceedings(:one)
+    @params = { inproceeding: { 'author' => @inproceeding.author,
+                                'title' => @inproceeding.title,
+                                'year' => @inproceeding.year,
+                                'booktitle' => @inproceeding.booktitle } }
   end
 
   test "should get index" do
@@ -23,6 +27,22 @@ class InproceedingsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to inproceeding_url(Inproceeding.last)
   end
 
+  test "should not create inproceeding if blank fields" do
+    assert_no_difference('Inproceeding.count') do
+      @params[:inproceeding].delete('author')
+      post inproceedings_url, params: @params
+      assert_select "li", "Author can't be blank"
+
+      @params[:inproceeding].delete('title')
+      post inproceedings_url, params: @params
+      assert_select "li", "Title can't be blank"
+
+      @params[:inproceeding].delete('year')
+      post inproceedings_url, params: @params
+      assert_select "li", "Year can't be blank"
+    end
+  end
+
   test "should show inproceeding" do
     get inproceeding_url(@inproceeding)
     assert_response :success
@@ -36,6 +56,17 @@ class InproceedingsControllerTest < ActionDispatch::IntegrationTest
   test "should update inproceeding" do
     patch inproceeding_url(@inproceeding), params: { inproceeding: { address: @inproceeding.address, author: @inproceeding.author, booktitle: @inproceeding.booktitle, editor: @inproceeding.editor, key: @inproceeding.key, month: @inproceeding.month, note: @inproceeding.note, organization: @inproceeding.organization, pages: @inproceeding.pages, publisher: @inproceeding.publisher, series: @inproceeding.series, title: @inproceeding.title, volume: @inproceeding.volume, year: @inproceeding.year } }
     assert_redirected_to inproceeding_url(@inproceeding)
+  end
+
+  test "should not update inproceeding if blank fields" do
+    patch inproceeding_url(@inproceeding), params: { inproceeding: { author: "",
+                                                      title: "",
+                                                      booktitle: "",
+                                                      year: "" } }
+    assert_select "li", "Author can't be blank"
+    assert_select "li", "Title can't be blank"
+    assert_select "li", "Booktitle can't be blank"
+    assert_select "li", "Year can't be blank"
   end
 
   test "should destroy inproceeding" do
