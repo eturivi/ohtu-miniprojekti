@@ -45,4 +45,21 @@ class InproceedingsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to inproceedings_url
   end
+
+  test ".bib file download with one inproceeding works properly" do
+    a = Inproceeding.new(author: "aaa", title: "t", booktitle: "yyy", year: 1233, key: "aaa12332")
+    assert a.save
+
+    expected = <<~END
+      @inproceeding{ aaa12332,
+        author = "aaa",
+        title = "t",
+        booktitle = "yyy",
+        year = "1233" }
+      END
+
+    get inproc_download_path(a.id)
+    assert_equal expected, response.body
+    assert_response 200
+  end
 end

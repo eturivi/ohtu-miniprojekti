@@ -10,20 +10,20 @@ class ReferencesControllerTest < ActionDispatch::IntegrationTest
         journal = "test journal",
         volume = "189" }
 
-      @inproceeding{ 1,
-        author = "MyString",
-        title = "MyString",
-        booktitle = "MyString",
-        year = "1",
-        editor = "MyString",
-        volume = "1",
-        series = "MyString",
-        pages = "MyString",
-        address = "MyString",
-        month = "1",
-        organization = "MyString",
-        publisher = "MyString",
-        note = "MyString" }
+      @inproceeding{ MyA18232,
+        author = "MyAuthor",
+        title = "MyTitle",
+        booktitle = "MyBooktitle",
+        year = "1823",
+        editor = "MyEditor",
+        volume = "4",
+        series = "MySeries",
+        pages = "MyPages",
+        address = "MyAddress",
+        month = "7",
+        organization = "MyOrganization",
+        publisher = "MyPublisher",
+        note = "MyNote" }
 
       END
 

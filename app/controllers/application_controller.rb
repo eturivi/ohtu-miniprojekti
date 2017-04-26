@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
         entry_string = entry_string + ",\n  #{key} = \"#{value}\""
       end
     end
-    entry_string = entry_string + " }"
+    entry_string = entry_string + " }\n"
   end
 
 end
