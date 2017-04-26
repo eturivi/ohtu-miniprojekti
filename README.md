@@ -14,6 +14,6 @@
 
 - [Sprint III Backlog](https://trello.com/b/tfTBgMb8)
 
-- [Sprint III Burndown](#)
+- [Sprint III Burndown](https://docs.google.com/spreadsheets/d/10TIlJbe4Rb3yK2RdKURmlTuV4c97G1W0UZRpWwRa58w/edit?usp=sharing)
 
 - [Other Documentation](https://github.com/eturivi/ohtu-miniprojekti/tree/master/documentation)
