@@ -1,5 +1,5 @@
 class InproceedingsController < ApplicationController
-  before_action :set_inproceeding, only: [:show, :edit, :update, :destroy]
+  before_action :set_inproceeding, only: [:show, :edit, :update, :destroy, :download]
 
   # GET /inproceedings
   # GET /inproceedings.json
@@ -61,6 +61,11 @@ class InproceedingsController < ApplicationController
       format.html { redirect_to inproceedings_url, notice: 'Inproceeding was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def download
+    bibtex = ApplicationController.create_entry(@inproceeding)
+    send_data bibtex, :filename => "inproceeding_reference.bib"
   end
 
   private

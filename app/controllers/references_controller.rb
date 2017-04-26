@@ -14,10 +14,10 @@ class ReferencesController < ApplicationController
   end
 
   def download
-    @references = Article.all
+    @references = Article.all + Inproceeding.all
     bibtex = ""
     @references.each do |ref|
-      bibtex = bibtex + ArticlesController.create_entry(ref) + "\n\n"
+      bibtex = bibtex + ApplicationController.create_entry(ref) + "\n\n"
     end
     send_data bibtex, :filename => "all_references.bib"
   end

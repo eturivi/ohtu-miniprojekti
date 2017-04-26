@@ -15,19 +15,3 @@ one:
   publisher: MyString
   note: MyString
   key: 1
-
-two:
-  author: MyString
-  title: MyString
-  booktitle: MyString
-  year: 1
-  editor: MyString
-  volume: 1
-  series: MyString
-  pages: MyString
-  address: MyString
-  month: 1
-  organization: MyString
-  publisher: MyString
-  note: MyString
-  key: 1
