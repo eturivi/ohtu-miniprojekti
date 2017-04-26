@@ -4,12 +4,16 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/eturivi/ohtu-miniprojekti/badge.svg?branch=master)](https://coveralls.io/github/eturivi/ohtu-miniprojekti)
 
-## How to run
-[Link to the application](https://eturivi.herokuapp.com)
+## How to Run
+[Link to the Application](https://eturivi.herokuapp.com)
 
 ## Documentation
-[Project Backlog](https://trello.com/b/8Wocccve)
+- [Definition of Done](https://github.com/eturivi/ohtu-miniprojekti/blob/master/documentation/DoD.md)
 
-[Sprint III Backlog](https://trello.com/b/tfTBgMb8)
+- [Project Backlog](https://trello.com/b/8Wocccve)
 
-[Documentation](https://github.com/eturivi/ohtu-miniprojekti/tree/master/documentation)
+- [Sprint III Backlog](https://trello.com/b/tfTBgMb8)
+
+- [Sprint III Burndown](#)
+
+- [Other Documentation](https://github.com/eturivi/ohtu-miniprojekti/tree/master/documentation)
