@@ -47,6 +47,26 @@
       <%= f.text_field :all_tags, placeholder: "Tags separated with comma" %>
     </div>
 
+    <div class="field">
+      <%= f.label :number %>
+      <%= f.number_field :number, placeholder: "Optional" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :pages %>
+      <%= f.number_field :pages, placeholder: "Optional" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :month %>
+      <%= f.number_field :month, placeholder: "Optional" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :note %>
+      <%= f.text_field :note, placeholder: "Optional" %>
+    </div>
+
     <div class="actions">
       <%= f.submit class: "button secondary"%>
     </div>

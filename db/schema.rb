@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170425201500) do
+ActiveRecord::Schema.define(version: 20170427084426) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "author"
@@ -21,6 +21,10 @@ ActiveRecord::Schema.define(version: 20170425201500) do
     t.text     "journal"
     t.integer  "volume"
     t.string   "key"
+    t.integer  "number"
+    t.integer  "pages"
+    t.integer  "month"
+    t.string   "note"
   end
 
   create_table "inproceedings", force: :cascade do |t|
