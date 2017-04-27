@@ -21,6 +21,10 @@ ActiveRecord::Schema.define(version: 20170427111212) do
     t.text     "journal"
     t.integer  "volume"
     t.string   "key"
+    t.integer  "number"
+    t.integer  "pages"
+    t.integer  "month"
+    t.string   "note"
   end
 
   create_table "books", force: :cascade do |t|
