@@ -89,7 +89,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert a.save
 
     expected = <<~END
-      @article{ aaa12332,
+      @article{aaa12332,
         author = "aaa",
         title = "t",
         year = "1233",

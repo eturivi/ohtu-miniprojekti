@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def self.create_entry(reference)
-    entry_string = "@#{reference.class.name.downcase}{ #{reference.key}"
+    entry_string = "@#{reference.class.name.downcase}{#{reference.key}"
 
     reference.attributes.each do |key, value|
       if !key.to_s.in?(["id", "created_at", "updated_at", "key"]) && !value.blank?

@@ -82,7 +82,7 @@ class InproceedingsControllerTest < ActionDispatch::IntegrationTest
     assert a.save
 
     expected = <<~END
-      @inproceeding{ aaa12332,
+      @inproceeding{aaa12332,
         author = "aaa",
         title = "t",
         booktitle = "yyy",

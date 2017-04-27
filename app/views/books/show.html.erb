@@ -1,0 +1,63 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cite key:</strong>
+  <%= @book.key %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @book.author %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @book.title %>
+</p>
+
+<p>
+  <strong>Publisher:</strong>
+  <%= @book.publisher %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @book.year %>
+</p>
+
+<p>
+  <strong>Volume:</strong>
+  <%= @book.volume %>
+</p>
+
+<p>
+  <strong>Series:</strong>
+  <%= @book.series %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @book.address %>
+</p>
+
+<p>
+  <strong>Edition:</strong>
+  <%= @book.edition %>
+</p>
+
+<p>
+  <strong>Month:</strong>
+  <%= @book.month %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @book.note %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @book.all_tags %>
+</p>
+
+<%= link_to 'Edit', edit_book_path(@book), class: 'button secondary' %> <%= link_to 'Destroy', @book, method: :delete, data: { confirm: 'Are you sure?' }, class: "button secondary" %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170425201500) do
+ActiveRecord::Schema.define(version: 20170427111212) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "author"
@@ -21,6 +21,22 @@ ActiveRecord::Schema.define(version: 20170425201500) do
     t.text     "journal"
     t.integer  "volume"
     t.string   "key"
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.string   "author"
+    t.string   "title"
+    t.string   "publisher"
+    t.integer  "year"
+    t.integer  "volume"
+    t.string   "series"
+    t.string   "address"
+    t.string   "edition"
+    t.integer  "month"
+    t.string   "note"
+    t.string   "key"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "inproceedings", force: :cascade do |t|
@@ -48,6 +64,7 @@ ActiveRecord::Schema.define(version: 20170425201500) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "inproceeding_id"
+    t.integer  "book_id"
     t.index ["article_id"], name: "index_taggings_on_article_id"
     t.index ["tag_id"], name: "index_taggings_on_tag_id"
   end

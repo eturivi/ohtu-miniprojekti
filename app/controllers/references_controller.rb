@@ -25,6 +25,6 @@ class ReferencesController < ApplicationController
   private
 
   def set_references
-    @references = Article.all + Inproceeding.all
+    @references = Article.all + Inproceeding.all + Book.all
   end
 end

@@ -1,0 +1,14 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  key: MyS11
+  author: MyString
+  title: MyString
+  publisher: MyString
+  year: 1
+  volume: 1
+  series: MyString
+  address: MyString
+  edition: MyString
+  month: 1
+  note: MyString
