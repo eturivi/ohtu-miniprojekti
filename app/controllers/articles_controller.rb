@@ -69,12 +69,12 @@ class ArticlesController < ApplicationController
   end
 
   def self.create_entry(article)
-    "@article{ #{article.key},\n"+
+    "@article{#{article.key},\n"+
     "  author = \"#{article.author}\",\n" +
     "  title = \"#{article.title}\",\n" +
     "  journal = \"#{article.journal}\",\n" +
     "  volume = \"#{article.volume}\",\n" +
-    "  year = \"#{article.year}\" }"
+    "  year = \"#{article.year}\"}"
   end
 
   private

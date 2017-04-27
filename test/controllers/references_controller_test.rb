@@ -1,46 +1,50 @@
 require 'test_helper'
 
 class ReferencesControllerTest < ActionDispatch::IntegrationTest
-  test ".bib file download with one article works properly" do
+  test ".bib file download with multiple references works properly" do
+
     expected = <<~END
-      @article{ ,
+      @article{BB11,
         author = "test user åäö",
         title = "test article",
         journal = "test journal",
         volume = "189",
-        year = "2017" }
+        year = "2017"}
 
-      END
+      @inproceeding{2,
+        author = "MyString",
+        title = "MyString",
+        booktitle = "MyString",
+        year = "1",
+        editor = "MyString",
+        volume = "1",
+        series = "MyString",
+        pages = "MyString",
+        address = "MyString",
+        month = "1",
+        organization = "MyString",
+        publisher = "MyString",
+        note = "MyString"}
+
+      @inproceeding{1,
+        author = "MyString",
+        title = "MyString",
+        booktitle = "MyString",
+        year = "1",
+        editor = "MyString",
+        volume = "1",
+        series = "MyString",
+        pages = "MyString",
+        address = "MyString",
+        month = "1",
+        organization = "MyString",
+        publisher = "MyString",
+        note = "MyString"}\n
+        END
 
     get alldownload_path
     assert_equal expected, response.body
     assert_response 200
   end
 
-  test ".bib file download with multiple articles works properly" do
-    a = Article.new(author: "a", title: "t", year: -5, journal: "j", volume: -5)
-    assert a.save
-
-    expected = <<~END
-      @article{ ,
-        author = "test user åäö",
-        title = "test article",
-        journal = "test journal",
-        volume = "189",
-        year = "2017" }
-
-      @article{ ,
-        author = "a",
-        title = "t",
-        journal = "j",
-        volume = "-5",
-        year = "-5" }
-
-      END
-
-
-    get alldownload_path
-    assert_equal expected, response.body
-    assert_response 200
-  end
 end

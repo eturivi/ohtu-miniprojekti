@@ -69,12 +69,12 @@ class InproceedingsController < ApplicationController
   end
 
   def self.create_entry(inproceeding)
-    "@inproceeding{ #{inproceeding.key},\n"+
+    "@inproceeding{#{inproceeding.key},\n"+
     "  author = \"#{inproceeding.author}\",\n" +
     "  title = \"#{inproceeding.title}\",\n" +
     "  booktitle = \"#{inproceeding.booktitle}\",\n" +
     "  year = \"#{inproceeding.year}\",\n" +
-    "  editor = \"#{inproceeding.editor}\" }" +
+    "  editor = \"#{inproceeding.editor}\",\n" +
     "  volume = \"#{inproceeding.volume}\",\n" +
     "  series = \"#{inproceeding.series}\",\n" +
     "  pages = \"#{inproceeding.pages}\",\n" +
@@ -82,7 +82,7 @@ class InproceedingsController < ApplicationController
     "  month = \"#{inproceeding.month}\",\n" +
     "  organization = \"#{inproceeding.organization}\",\n" +
     "  publisher = \"#{inproceeding.publisher}\",\n" +
-    "  note = \"#{inproceeding.note}\",\n"
+    "  note = \"#{inproceeding.note}\"}"
   end
 
   private

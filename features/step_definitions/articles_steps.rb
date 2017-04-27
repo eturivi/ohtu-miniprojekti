@@ -12,7 +12,7 @@ When(/^author "(.*)", title "(.*)", year "(.*)", journal "(.*)", volume "(.*)" a
   fill_in "Title", with: title
   fill_in "Year", with: year
   fill_in "Journal", with: journal
-  fill_in "Volume", with: volume 
+  fill_in "Volume", with: volume
   click_button 'Create Article'
 end
 
@@ -26,7 +26,7 @@ When(/all fields except (\w+) are given/) do |missing_field|
 end
 
 When(/^I click "(.*)"$/) do |link|
-  click_link link
+  first(:link, link).click
 end
 
 Then(/^article is added$/) do

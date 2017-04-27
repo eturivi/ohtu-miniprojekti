@@ -17,10 +17,10 @@ class ReferencesController < ApplicationController
     set_references
     bibtex = ""
     @references.each do |ref|
-      if ref.class.name == 'article'
+      if ref.class.name == 'Article'
         bibtex = bibtex + ArticlesController.create_entry(ref) + "\n\n"
       end
-      if ref.class.name == 'inproceeding'
+      if ref.class.name == 'Inproceeding'
         bibtex = bibtex + InproceedingsController.create_entry(ref) + "\n\n"
       end
     end
