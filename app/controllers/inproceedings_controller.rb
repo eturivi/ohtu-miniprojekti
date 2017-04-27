@@ -63,6 +63,28 @@ class InproceedingsController < ApplicationController
     end
   end
 
+  def download
+    bibtex = InproceedingsController.create_entry(@inproceeding)
+    send_data bibtex, :filename => "inproceeding_reference.bib"
+  end
+
+  def self.create_entry(inproceeding)
+    "@inproceeding{ #{inproceeding.key},\n"+
+    "  author = \"#{inproceeding.author}\",\n" +
+    "  title = \"#{inproceeding.title}\",\n" +
+    "  booktitle = \"#{inproceeding.booktitle}\",\n" +
+    "  year = \"#{inproceeding.year}\",\n" +
+    "  editor = \"#{inproceeding.editor}\" }" +
+    "  volume = \"#{inproceeding.volume}\",\n" +
+    "  series = \"#{inproceeding.series}\",\n" +
+    "  pages = \"#{inproceeding.pages}\",\n" +
+    "  address = \"#{inproceeding.address}\",\n" +
+    "  month = \"#{inproceeding.month}\",\n" +
+    "  organization = \"#{inproceeding.organization}\",\n" +
+    "  publisher = \"#{inproceeding.publisher}\",\n" +
+    "  note = \"#{inproceeding.note}\",\n"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_inproceeding

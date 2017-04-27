@@ -9,16 +9,27 @@ class ReferencesController < ApplicationController
         end
       end
     else
-      @references = Article.all
+      set_references
     end
   end
 
   def download
-    @references = Article.all
+    set_references
     bibtex = ""
     @references.each do |ref|
-      bibtex = bibtex + ArticlesController.create_entry(ref) + "\n\n"
+      if ref.class.name == 'article'
+        bibtex = bibtex + ArticlesController.create_entry(ref) + "\n\n"
+      end
+      if ref.class.name == 'inproceeding'
+        bibtex = bibtex + InproceedingsController.create_entry(ref) + "\n\n"
+      end
     end
     send_data bibtex, :filename => "all_references.bib"
+  end
+
+  private
+
+  def set_references
+    @references = Article.all + Inproceeding.all
   end
 end
