@@ -1,5 +1,5 @@
 class InproceedingsController < ApplicationController
-  before_action :set_inproceeding, only: [:show, :edit, :update, :destroy]
+  before_action :set_inproceeding, only: [:show, :edit, :update, :destroy, :download]
 
   # GET /inproceedings
   # GET /inproceedings.json
@@ -64,25 +64,8 @@ class InproceedingsController < ApplicationController
   end
 
   def download
-    bibtex = InproceedingsController.create_entry(@inproceeding)
+    bibtex = ApplicationController.create_entry(@inproceeding)
     send_data bibtex, :filename => "inproceeding_reference.bib"
-  end
-
-  def self.create_entry(inproceeding)
-    "@inproceeding{#{inproceeding.key},\n"+
-    "  author = \"#{inproceeding.author}\",\n" +
-    "  title = \"#{inproceeding.title}\",\n" +
-    "  booktitle = \"#{inproceeding.booktitle}\",\n" +
-    "  year = \"#{inproceeding.year}\",\n" +
-    "  editor = \"#{inproceeding.editor}\",\n" +
-    "  volume = \"#{inproceeding.volume}\",\n" +
-    "  series = \"#{inproceeding.series}\",\n" +
-    "  pages = \"#{inproceeding.pages}\",\n" +
-    "  address = \"#{inproceeding.address}\",\n" +
-    "  month = \"#{inproceeding.month}\",\n" +
-    "  organization = \"#{inproceeding.organization}\",\n" +
-    "  publisher = \"#{inproceeding.publisher}\",\n" +
-    "  note = \"#{inproceeding.note}\"}"
   end
 
   private

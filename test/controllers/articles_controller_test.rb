@@ -83,4 +83,22 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_select "td", /^test\ journal$/
     assert_select "td", /^189$/
   end
+
+  test ".bib file download with one article works properly" do
+    a = Article.new(author: "aaa", title: "t", year: 1233, journal: "j", volume: -5, key: "aaa12332")
+    assert a.save
+
+    expected = <<~END
+      @article{ aaa12332,
+        author = "aaa",
+        title = "t",
+        year = "1233",
+        journal = "j",
+        volume = "-5" }
+      END
+
+    get article_download_path(a.id)
+    assert_equal expected, response.body
+    assert_response 200
+  end
 end

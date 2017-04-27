@@ -64,17 +64,8 @@ class ArticlesController < ApplicationController
   end
 
   def download
-    bibtex = ArticlesController.create_entry(@article)
+    bibtex = ApplicationController.create_entry(@article)
     send_data bibtex, :filename => "article_reference.bib"
-  end
-
-  def self.create_entry(article)
-    "@article{#{article.key},\n"+
-    "  author = \"#{article.author}\",\n" +
-    "  title = \"#{article.title}\",\n" +
-    "  journal = \"#{article.journal}\",\n" +
-    "  volume = \"#{article.volume}\",\n" +
-    "  year = \"#{article.year}\"}"
   end
 
   private

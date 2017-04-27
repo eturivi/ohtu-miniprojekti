@@ -2,49 +2,33 @@ require 'test_helper'
 
 class ReferencesControllerTest < ActionDispatch::IntegrationTest
   test ".bib file download with multiple references works properly" do
-
     expected = <<~END
-      @article{BB11,
+      @article{ tes20171,
         author = "test user åäö",
         title = "test article",
+        year = "2017",
         journal = "test journal",
-        volume = "189",
-        year = "2017"}
+        volume = "189" }
 
-      @inproceeding{2,
-        author = "MyString",
-        title = "MyString",
-        booktitle = "MyString",
-        year = "1",
-        editor = "MyString",
-        volume = "1",
-        series = "MyString",
-        pages = "MyString",
-        address = "MyString",
-        month = "1",
-        organization = "MyString",
-        publisher = "MyString",
-        note = "MyString"}
+      @inproceeding{ MyA18232,
+        author = "MyAuthor",
+        title = "MyTitle",
+        booktitle = "MyBooktitle",
+        year = "1823",
+        editor = "MyEditor",
+        volume = "4",
+        series = "MySeries",
+        pages = "MyPages",
+        address = "MyAddress",
+        month = "7",
+        organization = "MyOrganization",
+        publisher = "MyPublisher",
+        note = "MyNote" }
 
-      @inproceeding{1,
-        author = "MyString",
-        title = "MyString",
-        booktitle = "MyString",
-        year = "1",
-        editor = "MyString",
-        volume = "1",
-        series = "MyString",
-        pages = "MyString",
-        address = "MyString",
-        month = "1",
-        organization = "MyString",
-        publisher = "MyString",
-        note = "MyString"}\n
-        END
+      END
 
     get alldownload_path
     assert_equal expected, response.body
     assert_response 200
   end
-
 end
