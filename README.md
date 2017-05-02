@@ -19,7 +19,7 @@
 ### Past Sprints
 - [Sprint III Backlog](https://trello.com/b/tfTBgMb8)
 
-- [Sprint II Backlog](#)
+- [Sprint II Backlog](https://trello.com/b/MGD2YK9W)
 
 - [Sprint II Burndown](https://github.com/eturivi/ohtu-miniprojekti/blob/master/documentation/sprint2/burndown-week2.png)
 
