@@ -1,6 +1,6 @@
 class ReferencesController < ApplicationController
   def index
-    if params[:tags] && params[:tags] != ""
+    if params[:tags] && !params[:tags].to_s.strip.empty?
       @references = Article.all.select do |article|
         params[:tags].split(",").any? do |tag_name|
           article.tags.any? do |tag|
