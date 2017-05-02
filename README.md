@@ -14,6 +14,15 @@
 
 - [Sprint IV Backlog](https://trello.com/b/mfBnC2IC)
 
-- [Sprint IV Burndown](https://docs.google.com/spreadsheets/d/10TIlJbe4Rb3yK2RdKURmlTuV4c97G1W0UZRpWwRa58w/edit?usp=sharing)
+- [Sprint IV & III Burndown](https://docs.google.com/spreadsheets/d/10TIlJbe4Rb3yK2RdKURmlTuV4c97G1W0UZRpWwRa58w/edit?usp=sharing)
 
-- [Other Documentation](https://github.com/eturivi/ohtu-miniprojekti/tree/master/documentation)
+### Past Sprints
+- [Sprint III Backlog](https://trello.com/b/tfTBgMb8)
+
+- [Sprint II Backlog](#)
+
+- [Sprint II Burndown](https://github.com/eturivi/ohtu-miniprojekti/blob/master/documentation/sprint2/burndown-week2.png)
+
+- [Sprint I Backlog](#)
+
+- [Sprint I Burndown](https://github.com/eturivi/ohtu-miniprojekti/blob/master/documentation/sprint1/burndown-week1.png)
