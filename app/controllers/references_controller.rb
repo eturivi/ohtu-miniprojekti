@@ -1,6 +1,6 @@
 class ReferencesController < ApplicationController
   def index
-    if params[:tags]
+    if params[:tags] && params[:tags] != ""
       @references = Article.all.select do |article|
         params[:tags].split(",").any? do |tag_name|
           article.tags.any? do |tag|
