@@ -6,7 +6,6 @@
   <%= text_field_tag(:tags, nil, placeholder: "Search by tags") %>
 <% end %>
 
-<%= form_tag(alldownload_selected_path, :method=>'post', :multipart => true) do %>
 <table>
   <thead>
     <tr>
@@ -29,15 +28,11 @@
         <td><%= reference.title %></td>
         <td><%= reference.year %></td>
         <td><%= reference.all_tags %></td>
-        <td class="buttons"><%= link_to 'Show', reference, class: "button secondary" %>
-        <%= link_to 'Destroy', reference, method: :delete, data: { confirm: 'Are you sure?' }, class: "button secondary" %>
-        <%= check_box_tag "#{reference.class.name}selected[]", reference.id %>
-        </td>
+        <td><%= link_to 'Show', reference, class: "button secondary" %>
+        <%= link_to 'Destroy', reference, method: :delete, data: { confirm: 'Are you sure?' }, class: "button secondary" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <%= link_to 'Download all references', alldownload_path, class: "button secondary" %>
-<%= submit_tag 'Download all selected references', class: "button secondary" %>
-<% end %>

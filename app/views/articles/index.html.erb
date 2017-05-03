@@ -22,7 +22,7 @@
         <td><%= article.year %></td>
         <td><%= article.journal %></td>
         <td><%= article.volume %></td>
-        <td><%= link_to 'Download bibtex', article_download_path(article.id), class: "button secondary" %>
+        <td class="buttons"><%= link_to 'Download bibtex', article_download_path(article.id), class: "button secondary" %>
         <%= link_to 'Show', article, class: "button secondary" %>
         <%= link_to 'Edit', edit_article_path(article), class: "button secondary" %>
         <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }, class: "button secondary" %></td>
