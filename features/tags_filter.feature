@@ -30,4 +30,5 @@ Feature: filtering references by tags works properly
         And new book is selected
         And author "a", title "b", publisher "c", year "1", tag "mytag" are given
         And references are searched by tag "mytag"
-        Then reference with type "book" and tag "booktag" is returned
+        Then reference with type "book" and tag "mytag" is returned
+        And  reference with type "article" and tag "mytag" is returned
