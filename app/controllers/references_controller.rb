@@ -1,9 +1,9 @@
 class ReferencesController < ApplicationController
   def index
     if params[:tags]
-      @references = Article.all.select do |article|
+      @references = set_references.select do |ref|
         params[:tags].split(",").any? do |tag_name|
-          article.tags.any? do |tag|
+          ref.tags.any? do |tag|
             tag.name == tag_name
           end
         end
