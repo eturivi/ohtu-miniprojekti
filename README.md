@@ -10,7 +10,7 @@
 ## Documentation
 - [Definition of Done](https://github.com/eturivi/ohtu-miniprojekti/blob/master/documentation/DoD.md)
 
-- [Project Backlog](https://trello.com/b/8Wocccve)
+- [Product Backlog](https://trello.com/b/8Wocccve)
 
 - [Sprint IV Backlog](https://trello.com/b/mfBnC2IC)
 

@@ -21,9 +21,8 @@ class InproceedingsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create inproceeding" do
     assert_difference('Inproceeding.count') do
-      post inproceedings_url, params: { inproceeding: { address: @inproceeding.address, author: @inproceeding.author, booktitle: @inproceeding.booktitle, editor: @inproceeding.editor, key: @inproceeding.key, month: @inproceeding.month, note: @inproceeding.note, organization: @inproceeding.organization, pages: @inproceeding.pages, publisher: @inproceeding.publisher, series: @inproceeding.series, title: @inproceeding.title, volume: @inproceeding.volume, year: @inproceeding.year } }
+      post inproceedings_url, params: @params
     end
-
     assert_redirected_to inproceeding_url(Inproceeding.last)
   end
 
