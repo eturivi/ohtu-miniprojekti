@@ -1,9 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>References
-  <%= link_to 'Download all references', alldownload_path, class: "button secondary" %>
-<%= submit_tag 'Download selected references', class: "button secondary" %>
-</h1>
+<h1>References</h1>
 
 <%= form_tag(references_path, method: "get") do %>
   <%= text_field_tag(:tags, nil, placeholder: "Search by tags") %>
