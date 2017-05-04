@@ -1,9 +1,6 @@
-When(/^Filename field is empty$/) do
-#toteuta filename-kenttä ensin
+When(/^I have chosen filename "(.*)"$/) do |filename|
+  fill_in "bibtex_name", with: filename
 end
-
-#When(/^I have chosen filename "(.*)"$/) do
-#end
 
 When(/^I press "(.*)"$/) do |button|
   click_button(button)
