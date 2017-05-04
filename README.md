@@ -24,6 +24,6 @@
 
 - [Sprint II Burndown](https://github.com/eturivi/ohtu-miniprojekti/blob/master/documentation/sprint2/burndown-week2.png)
 
-- [Sprint I Backlog](#)
+- [Sprint I Backlog](https://github.com/eturivi/ohtu-miniprojekti/projects/1)
 
 - [Sprint I Burndown](https://github.com/eturivi/ohtu-miniprojekti/blob/master/documentation/sprint1/burndown-week1.png)
