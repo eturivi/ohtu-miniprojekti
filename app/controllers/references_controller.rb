@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class ReferencesController < ApplicationController
   def index
     if params[:tags].present?
@@ -27,6 +29,40 @@ class ReferencesController < ApplicationController
       set_references
       create_bibtex_and_download(set_name("all_references.bib"))
     end
+  end
+
+  def import_from_acm
+    return if request.method == "GET"
+
+    url = params[:acm_link]
+    headers = {
+      # Pretend we're not scraping, to avoid 403 Forbidden response from ACM.
+      "User-Agent" => "Mozilla/5.0 (X11; U; Linux i686) Gecko/20071127 Firefox/2.0.0.11"
+    }
+    html = Nokogiri::HTML(open(url, headers))
+
+    get = -> key { html.at("meta[name='citation_#{key}']")&.[]('content') }
+
+    journal_title = get['journal_title']
+    publisher = get['publisher']
+    authors = get['authors']
+    title = get['title']
+    date = Date.parse(get['date'])
+    volume = get['volume']
+    issue = get['issue']
+    first_page = get['firstpage']
+    abstract_html_url = get['abstract_html_url']
+    pdf_url = get['pdf_url']
+    tags = get['keywords'].split('; ')
+
+    if not journal_title
+      return redirect_to :back, notice: 'Only articles can be imported at the moment.'
+    end
+
+    Article.create!(author: authors, title: title, year: date.year,
+                    journal: journal_title, volume: volume, number: issue,
+                    pages: first_page, month: date.month, note: pdf_url)
+    redirect_to :back, notice: 'Imported successfully.'
   end
 
   private

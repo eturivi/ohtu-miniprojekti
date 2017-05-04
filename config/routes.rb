@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   get 'books/:id/download', to: 'books#download', as: 'book_download'
   get 'references/download', to: 'references#download_all', as: 'alldownload'
   post 'references/download_selected', to: 'references#download_selected', as: 'alldownload_selected'
+
+  get 'import_from_acm', to: 'references#import_from_acm'
+  post 'import_from_acm', to: 'references#import_from_acm'
 end

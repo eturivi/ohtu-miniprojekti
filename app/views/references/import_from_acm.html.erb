@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Import from ACM Digital Library</h1>
+
+<%= form_tag(import_from_acm_path, method: "post") do %>
+  <%= text_field_tag(:acm_link, nil, placeholder: "Enter an ACM Digital Library link") %>
+  <%= submit_tag 'Import', class: "button secondary" %>
+<% end %>
