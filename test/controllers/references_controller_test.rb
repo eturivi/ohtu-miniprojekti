@@ -26,13 +26,13 @@ class ReferencesControllerTest < ActionDispatch::IntegrationTest
         note = "MyNote" }\n
         END
 
-    post alldownload_selected_path, params: {"Inproceedingselected" => ["1"], "Articleselected" => ["24"]}
+    post alldownload_selected_path, params: {"Inproceedingselected" => ["1"], "Articleselected" => ["24"], "selected_references" => ""}
     assert_equal expected, response.body
     assert_response 200
   end
 
   test "empty .bib file is produced if no references are selected" do
-    post alldownload_selected_path, params: {"Inproceedingselected" => nil}
+    post alldownload_selected_path, params: {"Inproceedingselected" => nil, "selected_references" => ""}
     assert_equal "", response.body
     assert_response 200
   end

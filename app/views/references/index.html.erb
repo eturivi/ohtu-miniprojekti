@@ -37,7 +37,7 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to 'Download all references', alldownload_path, class: "button secondary" %>
-<%= submit_tag 'Download selected references', class: "button secondary" %>
+<%= submit_tag 'Download all references', class: "button secondary", name: "all_references" %>
+<%= submit_tag 'Download all selected references', class: "button secondary", name: "selected_references" %>
+<%= text_field_tag(:bibtex_name, nil, placeholder: "Bibtex filename") %>
 <% end %>

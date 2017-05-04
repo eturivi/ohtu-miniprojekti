@@ -19,11 +19,25 @@ class ReferencesController < ApplicationController
   end
 
   def download_selected
-    set_selection
-    create_bibtex_and_download("selected_references.bib")
+    #Olis kyl salee joku parempiki tapa tehä tää :-D
+    if params.has_key?(:selected_references)
+      set_selection
+      create_bibtex_and_download(set_name("selected_references.bib"))
+    else
+      set_references
+      create_bibtex_and_download(set_name("all_references.bib"))
+    end
   end
 
   private
+
+  def set_name(fileName)
+    if params[:bibtex_name].blank?
+      return fileName
+    else
+      return params[:bibtex_name]
+    end
+  end
 
   def set_references
     @references = Article.all + Inproceeding.all + Book.all
