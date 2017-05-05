@@ -43,28 +43,40 @@ class ReferencesController < ApplicationController
 
     get = -> key { html.at("meta[name='citation_#{key}']")&.[]('content') }
 
-    journal_title = get['journal_title']
+    # The common metadata.
     publisher = get['publisher']
     authors = get['authors']
     title = get['title']
-    date = Date.parse(get['date'])
-    volume = get['volume']
-    issue = get['issue']
-    first_page = get['firstpage']
+    date = Date.strptime(get['date'], '%m/%d/%Y')
     abstract_html_url = get['abstract_html_url']
-    pdf_url = get['pdf_url']
-    tags = get['keywords'].split('; ')
 
-    if not journal_title
-      return redirect_to :back, notice: 'Only articles can be imported at the moment.'
+    if journal_title = get['journal_title']
+      # It's probably an article.
+      volume = get['volume']
+      issue = get['issue']
+      first_page = get['firstpage']
+      pdf_url = get['pdf_url']
+      tags = get['keywords'].split('; ')
+
+      @reference = Article.new(author: authors, title: title, year: date.year,
+                               journal: journal_title, volume: volume, number: issue,
+                               pages: first_page, month: date.month, note: pdf_url)
+    elsif isbn = get['isbn']
+      # It's probably a book.
+      @reference = Book.new(author: authors, title: title, publisher: publisher,
+                            year: date.year, month: date.month, note: abstract_html_url)
+    else
+      # It's something we don't currently support.
+      return redirect_to :back, notice: 'Cannot import that type of reference yet.'
     end
 
-    @reference = Article.create!(author: authors, title: title, year: date.year,
-                    journal: journal_title, volume: volume, number: issue,
-                    pages: first_page, month: date.month, note: pdf_url)
     create_key(@reference)
-    @reference.save
-    redirect_to :back, notice: 'Imported successfully.'
+
+    if @reference.save
+      redirect_to :back, notice: 'Imported successfully.'
+    else
+      redirect_to :back, notice: 'Import failed.'
+    end
   end
 
   private
