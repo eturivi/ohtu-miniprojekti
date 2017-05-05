@@ -59,9 +59,11 @@ class ReferencesController < ApplicationController
       return redirect_to :back, notice: 'Only articles can be imported at the moment.'
     end
 
-    Article.create!(author: authors, title: title, year: date.year,
+    @reference = Article.create!(author: authors, title: title, year: date.year,
                     journal: journal_title, volume: volume, number: issue,
                     pages: first_page, month: date.month, note: pdf_url)
+    create_key(@reference)
+    @reference.save
     redirect_to :back, notice: 'Imported successfully.'
   end
 
