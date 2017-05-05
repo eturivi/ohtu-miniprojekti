@@ -43,6 +43,10 @@ class ReferencesController < ApplicationController
 
     get = -> key { html.at("meta[name='citation_#{key}']")&.[]('content') }
 
+    if not get['authors']
+      return redirect_to :back, notice: "That's not an ACM Digital Library URL."
+    end
+
     # The common metadata.
     publisher = get['publisher']
     authors = get['authors']
