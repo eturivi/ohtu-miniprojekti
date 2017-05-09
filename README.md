@@ -4,6 +4,9 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/eturivi/ohtu-miniprojekti/badge.svg?branch=master)](https://coveralls.io/github/eturivi/ohtu-miniprojekti)
 
+## Report
+[Miniproject Report](https://docs.google.com/document/d/1dfIM68XQfsG7wVOPVbXI4MK8F2CrZwmibyBal4WUWaA/)
+
 ## How to Run
 [Link to the Application](https://eturivi.herokuapp.com)
 
